@@ -56,15 +56,15 @@ dA_t = \mu A_t dt + \sigma A_t dW_t
 $$
 
 其中：
-- \( \mu \)：资产漂移率（年化）
-- \( \sigma \)：资产波动率（年化）
-- \( W_t \)：标准布朗运动
+- \$( \mu \)$：资产漂移率（年化）
+- \$( \sigma \)$：资产波动率（年化）
+- \$( W_t \)$：标准布朗运动
 
 #### 2. 违约机制
 采用 **Black-Cox (1976)** 的首达模型：
-- 设定违约屏障 \( L = D \)，其中 \( D = \text{流动负债} + 0.5 \times \text{非流动负债} \)
-- 当 \( A_t \) 首次触及或跌破 \( L \) 时，公司违约
-- 违约时间：\( \tau = \inf\{t \geq 0 : A_t \leq L\} \)
+- 设定违约屏障 \$( L = D \)$，其中 \$( D = \text{流动负债} + 0.5 \times \text{非流动负债} \)$
+- 当 \$( A_t \) $首次触及或跌破 \$( L \)$ 时，公司违约
+- 违约时间：\$( \tau = \inf\{t \geq 0 : A_t \leq L\} \)$
 
 #### 3. 股权定价
 股权价值 \( S_t \) 可表示为带有**敲出屏障的看涨期权**（down-and-out call）：
@@ -74,13 +74,13 @@ S_t = A_t\Phi(a) - De^{-r(T-t)}\Phi(a-\sigma\sqrt{T-t}) - \left(\frac{L}{A_t}\ri
 $$
 
 其中：
-- \( \eta = \frac{r + 0.5\sigma^2}{\sigma^2} \)
-- \( a, b \) 为标准化距离参数
-- \( \Phi(\cdot) \) 为标准正态累积分布函数
+- \$( \eta = \frac{r + 0.5\sigma^2}{\sigma^2} \)$
+- \$( a, b \) $为标准化距离参数
+- \$( \Phi(\cdot) \) $为标准正态累积分布函数
 
 ### 幸存者偏差的数学刻画
 
-定义距离违约的对数过程：\( Z_t = \ln(A_t / L) \)
+定义距离违约的对数过程：\$( Z_t = \ln(A_t / L) \)$
 
 **关键洞察**：能够在 \( t=T \) 观察到公司，本身就隐含了"幸存事件" \( I^Z_T = \inf_{0 \leq s \leq T} Z_s > 0 \)。
 
@@ -91,10 +91,10 @@ $$
 E[\hat{\mu}_N \mid I^Z_T > 0] = \mu + \text{正偏差项}
 $$
 
-且当 \( \mu < 0.5\sigma^2 \) 时，该偏差在 \( T \to \infty \) 时不消失。
+且当 \$( \mu < 0.5\sigma^2 \) $时，该偏差在 \$( T \to \infty \)$ 时不消失。
 
 #### 条件MLE的偏差（Proposition 2.5）
-即使使用条件似然 \( f(Z_T \mid I^Z_T > 0) \)，仍存在系统性负偏差：
+即使使用条件似然 \$( f(Z_T \mid I^Z_T > 0) \)$，仍存在系统性负偏差：
 
 $$
 E[\hat{\mu}_C \mid I^Z_T > 0] < \mu
@@ -569,13 +569,6 @@ z_0 = np.log(150 / 100)  # ln(A_0/L)
 PD_1y = default_probability(mu=0.05, sigma=0.30, z_0=z_0, T=1.0)
 print(f"1年期违约概率: {PD_1y*100:.2f}%")
 ```
-
----
-
-## 联系方式
-
-- **GitHub**：[https://github.com/yourusername/project-name](https://github.com/yourusername/project-name)
-
 ---
 
 **最后更新时间**：2026年1月20日  
